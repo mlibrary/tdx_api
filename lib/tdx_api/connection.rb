@@ -1,4 +1,4 @@
-module TDX
+module TdxApi
   module Connection
 
     def POST endpoint, payload

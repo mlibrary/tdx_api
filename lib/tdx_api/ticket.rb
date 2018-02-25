@@ -1,4 +1,4 @@
-module TDX
+module TdxApi
   Ticket = Struct.new (
     :id,
     :parent_id,

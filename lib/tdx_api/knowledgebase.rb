@@ -1,4 +1,4 @@
-module TDX
+module TdxApi
   module Knowledgebase
     def kb_search query={}
       POST 'knowledgebase/search', query.to_json

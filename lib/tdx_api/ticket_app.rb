@@ -1,4 +1,4 @@
-module TDX
+module TdxApi
   class TicketApp
     attr_reader :app_id
 
@@ -39,5 +39,3 @@ module TDX
     end
   end
 end
-
-tickets(130).create
