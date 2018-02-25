@@ -1,4 +1,4 @@
-module TDX_API
+module TDX
   module Authentication
 
     TDX_BEID = ENV['BEID']
@@ -25,6 +25,5 @@ module TDX_API
         token
       end
     end
-    
   end
 end

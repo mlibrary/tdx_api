@@ -1,6 +1,6 @@
-module TDX_API
-  class Client
+module TDX
 
+  class Client
     attr_reader :bearer_token
 
     def initialize(username, password)
@@ -20,4 +20,5 @@ module TDX_API
     end
 
   end
+
 end

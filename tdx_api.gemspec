@@ -5,12 +5,13 @@ require "tdx_api/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "tdx_api"
-  spec.version       = TDX_API::VERSION
+  spec.version       = TdxApi::VERSION
   spec.authors       = ["Jackson Potter"]
   spec.email         = ["jackson.r.potter@gmail.com"]
 
-  spec.summary       = %q{Ruby wrapper for the TeamDynamix API}
-  spec.homepage      = "https://github.com/jacksonpotter/tdx_api"
+  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
+  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -32,7 +33,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+<<<<<<< HEAD
 
   spec.add_runtime_dependency "rest-client", "~> 2.0.2"
   spec.add_runtime_dependency "jwt", "~> 2.1.0"
+=======
+>>>>>>> parent of 050a724... Update module name
 end

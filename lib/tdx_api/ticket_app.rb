@@ -1,4 +1,4 @@
-module TDX_API
+module TDX
   class TicketApp
     attr_reader :app_id
 
@@ -22,7 +22,7 @@ module TDX_API
       POST "/#{app_id}/tickets/search", query
     end
 
-    def create(ticket:, enable_notify_reviewer:, notify_requestor:, notify_responsible:, allow_requestor_creation:})
+    def create(ticket, enable_notify_reviewer:, notify_requestor:, notify_responsible:, allow_requestor_creation:})
       # Creates a ticket. 
       # Returns: Either <Ticket>, fail
       # Rate limit: 120/60s
@@ -37,6 +37,7 @@ module TDX_API
 
       GET "#{app_id}/tickets/resources?searchText=#{search_text}"
     end
-
   end
 end
+
+tickets(130).create

@@ -8,6 +8,6 @@ require 'tdx_api/asset_app'
 require 'tdx_api/asset'
 require 'tdx_api/snakeify'
 
-module TDX_API
+module TdxApi
   # Your code goes here...
 end
