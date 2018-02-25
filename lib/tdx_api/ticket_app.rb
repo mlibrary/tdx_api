@@ -2,8 +2,8 @@ module TdxApi
   class TicketApp
     attr_reader :app_id
 
-    def initialize(app_id: app_id)
-      @app_id = app_id
+    def initialize(app_id: value)
+      @app_id = value
     end
 
     def ticket(id)

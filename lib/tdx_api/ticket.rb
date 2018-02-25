@@ -1,5 +1,5 @@
 module TdxApi
-  Ticket = Struct.new (
+  Ticket = Struct.new(
     :id,
     :parent_id,
     :parent_title,
@@ -114,6 +114,8 @@ module TdxApi
 
     def base_url(endpoint)
       "/#{@app_id}/tickets/#{@id}" + endpoint.to_s
+      #asdfasdf
+      #adfasdf
     end
 
     def remove_asset(asset_id)
@@ -194,6 +196,5 @@ module TdxApi
 
       POST base_url("?notifyNewResponsible=#{notify_new_responsible}"), updated_ticket
     end
-
   end
 end
