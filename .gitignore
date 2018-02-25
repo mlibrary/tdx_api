@@ -12,3 +12,6 @@
 
 # passwords, keys, and secrets
 .env
+
+# Ignore Gemfile.lock for development
+Gemfile.lock 
