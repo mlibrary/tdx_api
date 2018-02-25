@@ -1,4 +1,4 @@
-module TDX
+module TDX_API
   module Snakeify
     def underscore_key(key)
       snake_case(key.to_s).to_sym

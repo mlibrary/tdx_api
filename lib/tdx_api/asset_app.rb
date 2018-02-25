@@ -1,4 +1,4 @@
-module TDX
+module TDX_API
   class AssetApp
 
     def initialize
