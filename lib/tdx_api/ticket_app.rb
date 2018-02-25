@@ -22,7 +22,7 @@ module TdxApi
       POST "/#{app_id}/tickets/search", query
     end
 
-    def create(ticket, enable_notify_reviewer:, notify_requestor:, notify_responsible:, allow_requestor_creation:})
+    def create(ticket, enable_notify_reviewer:, notify_requestor:, notify_responsible:, allow_requestor_creation:)
       # Creates a ticket. 
       # Returns: Either <Ticket>, fail
       # Rate limit: 120/60s
