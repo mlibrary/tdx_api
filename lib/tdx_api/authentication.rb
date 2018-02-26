@@ -1,29 +1,25 @@
 module TdxApi
   module Authentication
 
-    TDX_BEID = ENV['BEID']
-    TDX_WEB_SERVICES_KEY = ENV['WEB_SERVICES_KEY']
+    BEID = ENV['BEID']
+    WEB_SERVICES_KEY = ENV['WEB_SERVICES_KEY']
 
-    def tdx_token_expired?
-      token ||= generate_tdx_token
-      Time.at(JWT.decode(token, nil, false)[0]['exp']) <= Time.now
-    end
-
-    def generate_tdx_token
+    def self.login_admin(username = nil, password = nil)
+      # TODO: there's got to be a better way to pass thru the args from Client::login than this
       RestClient.post(
         'https://api.teamdynamix.com/TDWebApi/api/auth/loginadmin', 
-        BEID: TDX_BEID,
-        WebServicesKey: TDX_WEB_SERVICES_KEY
+        BEID: BEID,
+        WebServicesKey: WEB_SERVICES_KEY
       ).body
     end
 
-    def tdx_token
-      token ||= generate_tdx_token
-      if tdx_token_expired?
-        token = generate_tdx_token
-      else
-        token
-      end
+    def self.login(username:, password:)
+      RestClient.post(
+        'https://api.teamdynamix.com/TDWebApi/api/auth/login', 
+        username: username,
+        password: password
+      ).body
     end
+
   end
 end
