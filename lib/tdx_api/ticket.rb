@@ -1,5 +1,7 @@
 module TdxApi
-  Ticket = Struct.new(
+
+  # TODO: This should eventually be a bunch of additional classes or something to provide better ergonomics, like Ticket#status instead of #status_name and #status_id.
+  Ticket = NamedStruct.new( 
     :id,
     :parent_id,
     :parent_title,
@@ -111,6 +113,8 @@ module TdxApi
     :tasks,
     :notify
   ) do
+
+    include TdxApi::Connection
 
     def base_url(endpoint)
       "/#{@app_id}/tickets/#{@id}" + endpoint.to_s

@@ -1,9 +1,12 @@
 module TdxApi
-  class TicketApp
-    attr_reader :app_id
+  class TicketApp < Client
+    include TdxApi::Connection
 
-    def initialize(app_id: value)
-      @app_id = value
+    attr_reader :app_id, :bearer_token
+
+    def initialize(app_id, bearer_token)
+      @app_id = app_id
+      @bearer_token = bearer_token
     end
 
     def ticket(id)
@@ -11,7 +14,7 @@ module TdxApi
       # Rate limit: 60/60s
 
       tix = GET "/#{@app_id}/tickets/#{id}"
-      Ticket.new(tix)
+      Ticket.new(**tix)
     end
 
     def search(query)
