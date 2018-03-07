@@ -14,7 +14,7 @@ module TdxApi
       # Rate limit: 60/60s
 
       tix = GET "/#{@app_id}/tickets/#{id}"
-      Ticket.new(**tix)
+      Ticket.new(tix)
     end
 
     def search(query)
