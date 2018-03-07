@@ -186,12 +186,12 @@ module TdxApi
       POST base_url("/feed"), item_update
     end
 
-    def patch_edit
-      # PATCH https://api.teamdynamix.com/TDWebApi/api/{appId}/tickets/{id}?notifyNewResponsible={notifyNewResponsible} 
-      # Patches an existing ticket. This only suports patching the ticket itself and custom attributes. Other collections on the ticket are not supported. 
-      # Returns: <Ticket>
-      # Rate limit: 60/60s
-    end
+    # def patch_edit
+    #   # PATCH https://api.teamdynamix.com/TDWebApi/api/{appId}/tickets/{id}?notifyNewResponsible={notifyNewResponsible} 
+    #   # Patches an existing ticket. This only suports patching the ticket itself and custom attributes. Other collections on the ticket are not supported. 
+    #   # Returns: <Ticket>
+    #   # Rate limit: 60/60s
+    # end
 
     def edit(updated_ticket, notify_new_responsible: false)
       # Edits an existing ticket. 
