@@ -1,5 +1,5 @@
 class NamedStruct < Struct
-  def initialize(**kwargs)
-    super(*members.map{|k| kwargs[k] })
+  def initialize(**keyword_args)
+    super(*members.map{|key| keyword_args[key] })
   end
 end

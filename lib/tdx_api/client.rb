@@ -1,6 +1,5 @@
 module TdxApi
   class Client
-
     attr_reader :login_type, :credentials
 
     def initialize(login_type, options = {username: nil, password: nil})
