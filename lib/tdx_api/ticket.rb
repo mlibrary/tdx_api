@@ -226,89 +226,80 @@ module TdxApi
       @notify = params[:notify]
     end
 
+    # Removes an asset from ticket. 
+    # Returns: Either success, fail
+    # Rate limit: 60/60s
     def remove_asset(asset_id)
-      # Removes an asset from ticket. 
-      # Returns: Either success, fail
-      # Rate limit: 60/60s
-
       DELETE base_url "/assets/#{asset_id}"
     end
 
+    # Adds an asset to ticket. 
+    # Returns: Either success, fail
+    # Rate limit: 60/60s
     def add_asset(asset_id)
-      # Adds an asset to ticket. 
-      # Returns: Either success, fail
-      # Rate limit: 60/60s
-
       POST base_url "/assets/#{asset_id}"
     end
 
+    # Uploads an attachment to a ticket. The file should be included as part of the submission's form data. 
+    # Returns: <Attachment>
+    # Rate limit: 60/60s
+    # Content-Type: multipart/form-data
     def upload_attachment(attachment)
-      # Uploads an attachment to a ticket. The file should be included as part of the submission's form data. 
-      # Returns: <Attachment>
-      # Rate limit: 60/60s
-
-      # Content-Type: multipart/form-data
-
-      POST base_url "/attachments"
+      POST base_url "/attachments", attachment
     end
 
+    # Gets the ticket contacts.
+    # Returns: [<User>, ...]
+    # Rate limit: 60/60s
     def contacts
-      # Gets the ticket contacts.
-      # Returns: [<User>, ...]
-      # Rate limit: 60/60s
-
       GET base_url "/contacts"
     end
 
+    # A response message indicating whether or not the contact was successfully removed form the ticket. 
+    # Rate limit: 60/60s
     def delete_contact(contact_uid)
-      # A response message indicating whether or not the contact was successfully removed form the ticket. 
-      # Rate limit: 60/60s
-
       DELETE base_url "/contacts/#{contact_uid}"
     end
 
+    # Adds a contact to ticket. 
+    # Rate limit: 60/60s
     def add_contact(contact_uid)
-      # Adds a contact to ticket. 
-      # Rate limit: 60/60s
-
       POST base_url "/contacts/#{contact_uid}"
     end
 
+    # Gets the feed entries for a ticket. 
+    # Returns: [<FeedEntry>, ..., ]
+    # Rate limit: 60/60s
     def feed
-      # Gets the feed entries for a ticket. 
-      # Returns: [<FeedEntry>, ..., ]
-      # Rate limit: 60/60s
-
       GET base_url "/feed"
     end
 
+    # Updates a ticket. 
+    # Returns: Either <FeedEntry>, fail
+    # Rate limit: 60/60s
     def update(item_update)
-      # Updates a ticket. 
-      # Returns: Either <FeedEntry>, fail
-      # Rate limit: 60/60s
-
       POST base_url("/feed"), item_update
     end
 
+    # TODO: Add patch edit support
+    # PATCH https://api.teamdynamix.com/TDWebApi/api/{appId}/tickets/{id}?notifyNewResponsible={notifyNewResponsible} 
+    # Patches an existing ticket. This only suports patching the ticket itself and custom attributes. Other collections on the ticket are not supported. 
+    # Returns: <Ticket>
+    # Rate limit: 60/60s
     # def patch_edit
-    #   # PATCH https://api.teamdynamix.com/TDWebApi/api/{appId}/tickets/{id}?notifyNewResponsible={notifyNewResponsible} 
-    #   # Patches an existing ticket. This only suports patching the ticket itself and custom attributes. Other collections on the ticket are not supported. 
-    #   # Returns: <Ticket>
-    #   # Rate limit: 60/60s
     # end
 
+    # Edits an existing ticket. 
+    # Returns: <Ticket>
+    # Rate limit: 60/60s
     def edit(updated_ticket, notify_new_responsible: false)
-      # Edits an existing ticket. 
-      # Returns: <Ticket>
-      # Rate limit: 60/60s
-
       POST base_url("?notifyNewResponsible=#{notify_new_responsible}"), updated_ticket
     end
 
     private
 
     def base_url(endpoint)
-      "/#{self.app_id}/tickets/#{self.id}" + endpoint.to_s
+      "/#{@app_id}/tickets/#{@id}" + endpoint.to_s
     end
 
   end
