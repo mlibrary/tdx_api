@@ -5,11 +5,11 @@ module TdxApi
     end
 
     def snake_case(camel_cased_word)
-      camel_cased_word.to_s.gsub(/::/, '/')
-        .gsub(/([A-Z]+)([A-Z][a-z])/,'\1_\2')
-        .gsub(/([a-z\d])([A-Z])/,'\1_\2')
-        .tr("-", "_")
-        .downcase
+      camel_cased_word.to_s.gsub(/::/, '/').
+        gsub(/([A-Z]+)([A-Z][a-z])/,'\1_\2').
+        gsub(/([a-z\d])([A-Z])/,'\1_\2').
+        tr("-", "_").
+        downcase
     end
 
     def snakeify(value)
