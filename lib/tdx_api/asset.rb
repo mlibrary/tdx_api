@@ -102,20 +102,9 @@ module TdxApi
       @uri = params[:uri]
     end
 
-
-    # def delete_resource
-    #   rate_limit 60
-    #   DELETE "#{app_id}/assets/#{asset_id}/users/#{resource_id}"
-    # end
-
     def edit(updated_asset)
       # rate_limit 60
       POST "#{app_id}/assets/#{id}", updated_asset
-    end
-
-    def add_attachment(file)
-      #rate_limit 60
-      POST "#{app_id}/assets/#{id}/attachments", file
     end
 
     def feed
@@ -131,6 +120,31 @@ module TdxApi
     def add_to_ticket(ticket_id)
       # rate_limit 60
       POST "#{app_id}/assets/#{id}/tickets/#{ticket_id}"
+    end
+
+    def remove_from_ticket(ticket_id)
+      # rate_limit 60
+      DELETE "#{app_id}/assets/#{id}/tickets/#{ticket_id}"
+    end
+
+    def add_attachment(file)
+      #rate_limit 60
+      POST "#{app_id}/assets/#{id}/attachments", file
+    end
+
+    def resources
+      # rate_limit 60
+      GET "#{app_id}/assets/#{id}/users"
+    end
+
+    def add_resource(resource_id)
+      # rate_limit 60
+      POST "#{app_id}/assets/#{id}/users/#{resource_id}"
+    end
+
+    def delete_resource
+      # rate_limit 60
+      DELETE "#{app_id}/assets/#{asset_id}/users/#{resource_id}"
     end
 
   end
