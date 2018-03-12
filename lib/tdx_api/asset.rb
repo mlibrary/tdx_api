@@ -103,6 +103,35 @@ module TdxApi
     end
 
 
-    
+    # def delete_resource
+    #   rate_limit 60
+    #   DELETE "#{app_id}/assets/#{asset_id}/users/#{resource_id}"
+    # end
+
+    def edit(updated_asset)
+      # rate_limit 60
+      POST "#{app_id}/assets/#{id}", updated_asset
+    end
+
+    def add_attachment(file)
+      #rate_limit 60
+      POST "#{app_id}/assets/#{id}/attachments", file
+    end
+
+    def feed
+      #rate_limit 60
+      GET "#{app_id}/assets/feed"
+    end
+
+    def add_comment(comment)
+      #rate_limit 60
+      POST "#{app_id}/assets/feed", comment
+    end
+      
+    def add_to_ticket(ticket_id)
+      # rate_limit 60
+      POST "#{app_id}/assets/#{id}/tickets/#{ticket_id}"
+    end
+
   end
 end

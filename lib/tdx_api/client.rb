@@ -25,7 +25,7 @@ module TdxApi
     end
 
     def assets(app_id)
-      AssetApp.new(app_id)
+      AssetApp.new(app_id, @bearer_token)
     end
 
     def login
